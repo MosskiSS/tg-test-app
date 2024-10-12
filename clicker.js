@@ -9,8 +9,9 @@ function handlePress(event) {
     const x = isTouchEvent ? event.touches[0].clientX - rect.left - rect.width / 2 : event.clientX - rect.left - rect.width / 2;
     const y = isTouchEvent ? event.touches[0].clientY - rect.top - rect.height / 2 : event.clientY - rect.top - rect.height / 2;
 
-    const rotateX = y / rect.height * 30; // Угол по оси X (вверх-вниз)
-    const rotateY = -x / rect.width * 30; // Угол по оси Y (влево-вправо)
+    // Инвертируем углы, чтобы наклон был более интуитивным
+    const rotateX = -y / rect.height * 30; // Угол по оси X (вверх-вниз)
+    const rotateY = x / rect.width * 30;  // Угол по оси Y (влево-вправо)
 
     coin.style.transform = `scale(0.9) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
 }
