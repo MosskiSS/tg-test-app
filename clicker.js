@@ -1,15 +1,25 @@
-window.Telegram.WebApp.ready();
+const coin = document.getElementById('coin');
 
-const avatar = document.getElementById('avatar');
-const username = document.getElementById('username');
+// Обработчик события нажатия
+coin.addEventListener('mousedown', (event) => {
+    // Определяем координаты мыши относительно монеты
+    const rect = coin.getBoundingClientRect();
+    const x = event.clientX - rect.left - rect.width / 2;
+    const y = event.clientY - rect.top - rect.height / 2;
 
-// Получаем данные пользователя из Telegram WebApp SDK
-const user = window.Telegram.WebApp.initDataUnsafe.user;
+    // Применяем трансформацию для наклона в зависимости от положения нажатия
+    const rotateX = y / rect.height * 30; // Угол по оси X (вверх-вниз)
+    const rotateY = -x / rect.width * 30; // Угол по оси Y (влево-вправо)
+    
+    // Плавное уменьшение монеты с наклоном
+    coin.style.transform = `scale(0.9) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+});
 
-if (user) {
-    // Устанавливаем аватар и имя пользователя
-    avatar.src = user.photo_url;
-    username.textContent = user.first_name;
-} else {
-    username.textContent = 'Гость';
-}
+// Восстанавливаем исходное положение после отпускания
+coin.addEventListener('mouseup', () => {
+    coin.style.transform = 'scale(1) rotateX(0deg) rotateY(0deg)';
+});
+
+coin.addEventListener('mouseleave', () => {
+    coin.style.transform = 'scale(1) rotateX(0deg) rotateY(0deg)';
+});
