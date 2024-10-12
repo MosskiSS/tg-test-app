@@ -13,24 +13,17 @@ body {
     height: 100vh;
     background: url('город1.png') no-repeat center center fixed;
     background-size: cover;
-    overflow: hidden; /* Запрещаем прокрутку */
+    overflow: hidden;
 }
 
-.profile {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.8); /* Светлый фон с прозрачностью для блока */
-    padding: 20px;
-    border-radius: 10px;
+/* Контейнер для монеты */
+.coin-container {
+    perspective: 1000px; /* Устанавливаем перспективу для 3D эффектов */
 }
 
-#avatar {
+#coin {
     width: 150px;
     height: 150px;
-    border-radius: 50%;
-}
-
-#username {
-    margin-top: 10px;
-    font-size: 20px;
-    font-weight: bold;
+    transition: transform 0.2s ease-out; /* Плавная анимация трансформации */
+    transform-origin: center; /* Центр вращения */
 }
