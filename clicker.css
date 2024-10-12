@@ -22,8 +22,8 @@ body {
 }
 
 #coin {
-    width: 150px;
-    height: 150px;
+    width: 200px; /* Увеличенный размер монеты */
+    height: 200px;
     transition: transform 0.2s ease-out; /* Плавная анимация трансформации */
     transform-origin: center; /* Центр вращения */
 }
