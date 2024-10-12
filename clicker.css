@@ -1,13 +1,26 @@
+/* Сброс стилей */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Основной стиль страницы */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
+    background: url('город1.png') no-repeat center center fixed;
+    background-size: cover;
+    overflow: hidden; /* Запрещаем прокрутку */
 }
 
 .profile {
     text-align: center;
+    background-color: rgba(255, 255, 255, 0.8); /* Светлый фон с прозрачностью для блока */
+    padding: 20px;
+    border-radius: 10px;
 }
 
 #avatar {
