@@ -8,7 +8,7 @@
 /* Основной стиль страницы */
 body {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
     height: 100vh;
     background: url('город1.png') no-repeat center center fixed;
@@ -16,13 +16,26 @@ body {
     overflow: hidden;
 }
 
+/* Прямоугольник с градиентом */
+.gradient-box {
+    width: 80%;  /* Ширина 80% от ширины экрана */
+    height: 100px; /* Высота прямоугольника */
+    margin-top: 20px; /* Отступ сверху */
+    background: linear-gradient(to bottom right, orange, yellow); /* Градиент фона */
+    border-radius: 20px; /* Скругленные края */
+    border: 4px solid;
+    border-image-slice: 1;
+    border-image-source: linear-gradient(to bottom right, red, orange); /* Градиентная обводка */
+}
+
 /* Контейнер для монеты */
 .coin-container {
     perspective: 1000px; /* Устанавливаем перспективу для 3D эффектов */
+    margin-top: 50px; /* Отступ сверху, чтобы монета была под прямоугольником */
 }
 
 #coin {
-    width: 300px; /* Увеличенный размер монеты */
+    width: 300px; /* Размер монеты */
     height: 300px;
     transition: transform 0.2s ease-out; /* Плавная анимация трансформации */
     transform-origin: center; /* Центр вращения */
